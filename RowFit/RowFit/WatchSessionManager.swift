@@ -10,10 +10,17 @@ struct RowMetrics: Codable {
 
 class WatchSessionManager: NSObject, WCSessionDelegate {
     func sessionDidBecomeInactive(_ session: WCSession) {
+        // No-op for iOS, but required to conform to WCSessionDelegate.
+        // When a session becomes inactive the counterpart app has been
+        // switched. We simply keep the delegate in place so the session
+        // can be reactivated when needed.
     }
-    
+
     func sessionDidDeactivate(_ session: WCSession) {
-    
+        // Once the old session has been deactivated it must be
+        // reactivated before further communication can occur. Activate
+        // immediately to resume the connection with the watch.
+        session.activate()
     }
     
     static let shared = WatchSessionManager()
@@ -37,6 +44,12 @@ class WatchSessionManager: NSObject, WCSessionDelegate {
     func requestStartWorkout() {
         guard WCSession.isSupported(), WCSession.default.isPaired else { return }
         let message = ["command": "startWorkout"]
+        WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: nil)
+    }
+
+    func requestStopWorkout() {
+        guard WCSession.isSupported(), WCSession.default.isPaired else { return }
+        let message = ["command": "stopWorkout"]
         WCSession.default.sendMessage(message, replyHandler: nil, errorHandler: nil)
     }
 
