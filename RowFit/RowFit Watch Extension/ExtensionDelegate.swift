@@ -19,9 +19,20 @@ class ExtensionDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
         }
     }
 
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        // Activation handling is not needed for this simple example but the
+        // delegate method must be present to conform to WCSessionDelegate.
+    }
+
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        if message["command"] as? String == "startWorkout" {
+        guard let command = message["command"] as? String else { return }
+        switch command {
+        case "startWorkout":
             startSendingMetrics()
+        case "stopWorkout":
+            stopSendingMetrics()
+        default:
+            break
         }
     }
 
@@ -38,5 +49,14 @@ class ExtensionDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
                 WCSession.default.sendMessage(["metrics": data], replyHandler: nil, errorHandler: nil)
             }
         }
+    }
+
+    func stopSendingMetrics() {
+        timer?.invalidate()
+        timer = nil
+    }
+
+    func applicationWillResignActive() {
+        stopSendingMetrics()
     }
 }
