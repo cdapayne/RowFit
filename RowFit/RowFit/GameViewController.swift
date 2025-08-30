@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    private var setupPresented = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,16 @@ class GameViewController: UIViewController {
             
             view.showsFPS = true
             view.showsNodeCount = true
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !setupPresented {
+            setupPresented = true
+            let setupVC = SetupViewController()
+            setupVC.modalPresentationStyle = .fullScreen
+            present(setupVC, animated: false, completion: nil)
         }
     }
 

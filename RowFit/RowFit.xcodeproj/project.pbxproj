@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C3696DFF2E627F36002C1692 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3696DFE2E627F36002C1692 /* WatchConnectivity.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		C3696DDD2E6279EE002C1692 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		C3696DC32E6279ED002C1692 /* RowFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RowFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3696DDC2E6279EE002C1692 /* RowFitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RowFitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3696DE62E6279EE002C1692 /* RowFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RowFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3696DFE2E627F36002C1692 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3696DFF2E627F36002C1692 /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,7 @@
 				C3696DC52E6279ED002C1692 /* RowFit */,
 				C3696DDF2E6279EE002C1692 /* RowFitTests */,
 				C3696DE92E6279EE002C1692 /* RowFitUITests */,
+				C3696DFD2E627F36002C1692 /* Frameworks */,
 				C3696DC42E6279ED002C1692 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +97,14 @@
 				C3696DE62E6279EE002C1692 /* RowFitUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C3696DFD2E627F36002C1692 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C3696DFE2E627F36002C1692 /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +414,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KAJSQ5ZH42;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RowFit;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -427,6 +443,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KAJSQ5ZH42;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RowFit;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
