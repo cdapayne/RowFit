@@ -9,6 +9,13 @@ struct RowMetrics: Codable {
 }
 
 class WatchSessionManager: NSObject, WCSessionDelegate {
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+    
+    }
+    
     static let shared = WatchSessionManager()
     private override init() {
         super.init()
